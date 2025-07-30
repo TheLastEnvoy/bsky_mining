@@ -1,1 +1,1 @@
-# bsky_mining
+# bluesky_posts_mining
