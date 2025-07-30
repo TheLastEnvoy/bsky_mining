@@ -1,3 +1,8 @@
+# Exemplo de uso
+
+![Exemplo de gráfico de análise de sentimento](images/graphic_example_bsky-mining.png)
+
+O gráfico acima mostra um exemplo de resultado obtido com os scripts deste projeto: coleta de posts do Bluesky e classificação dos posts por opinião positiva, negativa ou neutra.
 # [Read this in English](README_en.md)
 # Bluesky Agronegócio 2025 - Contador Otimizado
 
