@@ -1,3 +1,4 @@
+# [Read this in English](README_en.md)
 # Bluesky Agronegócio 2025 - Contador Otimizado
 
 Este projeto realiza a contagem e análise de posts relacionados ao agronegócio brasileiro na plataforma Bluesky durante o ano de 2025. O script utiliza autenticação via API, múltiplas queries otimizadas e técnicas de deduplicação para garantir precisão e eficiência.
