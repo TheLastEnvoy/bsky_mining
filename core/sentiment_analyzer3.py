@@ -165,7 +165,7 @@ def main():
 
     # Lê o CSV original
     logger.info("Carregando dados...")
-    df = pd.read_csv("bluesky_agronegócio_2025.csv")
+    df = pd.read_csv("data/bluesky_agronegócio_2025.csv")
 
     # Aplica análise de sentimento com barra de progresso
     logger.info("Iniciando análise de sentimento...")
@@ -183,7 +183,7 @@ def main():
 
     # Salva novo CSV
     logger.info("Salvando resultados...")
-    df.to_csv("posts_com_sentimento_agronegocio.csv", index=False)
+    df.to_csv("data/posts_com_sentimento_agronegocio.csv", index=False)
 
     # Exibe estatísticas detalhadas
     print("\n=== RELATÓRIO DE ANÁLISE ===")

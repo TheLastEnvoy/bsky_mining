@@ -160,7 +160,7 @@ class BlueskyPostFormatter:
             print("❌ Nenhum post para salvar")
             return
 
-        with open(output_file, 'w', encoding='utf-8') as f:
+        with open(f"data/{output_file}", 'w', encoding='utf-8') as f:
             f.write("POSTS SOBRE AGRONEGÓCIO - BLUESKY 2025\n")
             f.write("=" * 50 + "\n\n")
 
@@ -224,7 +224,7 @@ class BlueskyPostFormatter:
         df_clean = df_clean[column_order]
 
         # Salva CSV limpo
-        df_clean.to_csv(output_file, index=False, encoding='utf-8')
+        df_clean.to_csv(f"data/{output_file}", index=False, encoding='utf-8')
         print(f"💾 CSV limpo salvo em: {output_file}")
 
     def save_excel_organized(self, output_file: str = None):
@@ -256,7 +256,7 @@ class BlueskyPostFormatter:
             df['created_at_formatted'] = df['created_at'].apply(self.format_date)
 
             # Salva Excel
-            with pd.ExcelWriter(output_file, engine='openpyxl') as writer:
+            with pd.ExcelWriter(f"data/{output_file}", engine='openpyxl') as writer:
                 df.to_excel(writer, sheet_name='Posts Agronegócio', index=False)
 
                 # Ajusta largura das colunas
@@ -314,7 +314,7 @@ class BlueskyPostFormatter:
             column_order = [col for col in column_order if col in df.columns]
             df = df[column_order]
 
-            df.to_csv(filename, index=False, encoding='utf-8')
+            df.to_csv(f"data/{filename}", index=False, encoding='utf-8')
             print(f"💾 Posts {sentiment}: {filename} ({len(posts)} posts)")
 
     def print_sample(self, num_posts: int = 3):

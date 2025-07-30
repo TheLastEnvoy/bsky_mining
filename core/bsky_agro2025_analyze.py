@@ -292,7 +292,7 @@ class BlueskySearcher2025:
         """Salva posts em arquivo CSV"""
         if not filename:
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            filename = f"bluesky_agro_2025_complete_{timestamp}.csv"
+            filename = f"data/bluesky_agro_2025_complete_{timestamp}.csv"
 
         if not posts:
             print("❌ Nenhum post para salvar")
@@ -312,7 +312,7 @@ class BlueskySearcher2025:
         """Salva posts em arquivo JSON"""
         if not filename:
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            filename = f"bluesky_agro_2025_complete_{timestamp}.json"
+            filename = f"data/bluesky_agro_2025_complete_{timestamp}.json"
 
         with open(filename, 'w', encoding='utf-8') as jsonfile:
             json.dump(posts, jsonfile, ensure_ascii=False, indent=2)
@@ -350,10 +350,8 @@ def get_credentials():
         print("✅ Usando credenciais do arquivo .env")
         return env_email, env_password
     else:
-        print("❌ Credenciais não encontradas no .env")
-        email = input("📧 Digite seu email/handle: ").strip()
-        password = getpass("🔑 Digite sua senha: ")
-        return email, password
+        print("❌ Credenciais não encontradas no .env. Por favor, crie um arquivo .env com as variáveis BLUESKY_EMAIL e BLUESKY_PASSWORD.")
+        return None, None
 
 def main():
     """Função principal"""
@@ -382,7 +380,7 @@ def main():
     email, password = get_credentials()
 
     if not email or not password:
-        print("❌ Credenciais não fornecidas")
+        print("❌ Credenciais não fornecidas. O script será encerrado.")
         return
 
     # Autentica

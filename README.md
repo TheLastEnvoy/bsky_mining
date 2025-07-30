@@ -11,6 +11,25 @@ Este projeto realiza a contagem e análise de posts relacionados ao agronegócio
 - Suporte a variáveis de ambiente via `.env`
 
 ## Como usar
+## Como adaptar para outros temas
+
+Você pode usar os scripts para levantar posts sobre qualquer tema no Bluesky, não apenas agronegócio. Para isso, basta alterar as palavras-chave ou queries nos scripts principais:
+
+- **core/contabilizador_bluesky_agronegócio.py**
+  - Altere a lista `self.agro_queries` para os termos desejados:
+    ```python
+    self.agro_queries = [
+        "palavra1", "palavra2", "palavra3"
+    ]
+    ```
+
+- **core/bsky_agro2025_analyze.py**
+  - Altere o valor da variável `QUERY` na função `main()` para o termo desejado:
+    ```python
+    QUERY = "seu_tema_aqui"
+    ```
+
+Você pode adicionar quantos termos quiser, adaptando para qualquer área de interesse. Os scripts vão buscar, filtrar e analisar os posts conforme os novos temas definidos.
 1. Clone o repositório e instale as dependências necessárias (requer Python 3.8+ e `requests`).
 2. Crie um arquivo `.env` com as variáveis `BLUESKY_EMAIL` e `BLUESKY_PASSWORD`.
 3. Execute o script principal:
@@ -20,12 +39,10 @@ Este projeto realiza a contagem e análise de posts relacionados ao agronegócio
 4. Siga as instruções no terminal para iniciar a contagem.
 
 ## Estrutura dos arquivos
-- `contabilizador_bluesky_agronegócio.py`: Script principal de contagem e análise.
-- `sentiment_analyzer3.py`: Analisa o sentimento dos posts utilizando modelos transformers da Hugging Face.
-- `organiser_csv2.py`: Organiza arquivos CSV para outros formatos como XLSX, TXT ou um novo CSV já organizado.
+- Pasta `core/`: scripts principais do projeto (ex: contabilizador_bluesky_agronegócio.py, sentiment_analyzer3.py, organiser_csv2.py, bsky_agro2025_analyze.py).
+- Pasta `data/`: arquivos de dados (csv, json, txt, ods, etc).
 - `.env`: (não versionado) Armazena credenciais de acesso.
 - `example.env`: Exemplo de arquivo de variáveis de ambiente. Use como modelo para criar o seu `.env`, substituindo com seu e-mail e senha do Bluesky.
-- Outros arquivos: Dados de entrada/saída e scripts auxiliares.
 
 ## Observações
 - O arquivo `.env` **NÃO** deve ser versionado. Certifique-se de que está listado no `.gitignore`.
