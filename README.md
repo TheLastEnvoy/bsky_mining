@@ -16,6 +16,8 @@ Este projeto realiza a contagem e análise de posts relacionados ao agronegócio
 - Relatórios detalhados de desempenho e resultados
 - Suporte a variáveis de ambiente via `.env`
 
+- Geração de nuvem de palavras: O script `core/wordcloud_generator.py` permite criar uma nuvem de palavras a partir da planilha `.xlsx` gerada pelo script `bsky_agro2025_analyze.py`. Ele processa os textos dos posts, remove palavras irrelevantes (stopwords), calcula as frequências e gera uma visualização gráfica das palavras mais usadas, além de salvar a imagem da nuvem em arquivo PNG.
+
 ## Como usar
 ## Como adaptar para outros temas
 
